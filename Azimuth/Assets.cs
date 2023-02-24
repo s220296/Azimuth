@@ -32,7 +32,7 @@ namespace Azimuth
 			{
 				LoadAllOfType<Texture2D>(textures, "Textures", "png", Raylib.LoadTexture);
 				LoadAllOfType<Image>(images, "Images", "jpg", Raylib.LoadImage);
-				LoadAllOfType<Sound>(sounds, "Sounds", "mp4", Raylib.LoadSound);
+				LoadAllOfType<Sound>(sounds, "Sounds", "wav", Raylib.LoadSound);
 				LoadAllOfType<Font>(fonts, "Fonts", "ttf", Raylib.LoadFont);
 			}
 
