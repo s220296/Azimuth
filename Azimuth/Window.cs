@@ -4,22 +4,17 @@ namespace Azimuth
 {
 	public class Window
 	{
-		public int Width { get; private set; }
-		public int Height { get; private set; }
+		public int Width { get; }
+		public int Height { get; }
 		public string Title { get; }
 		public Color ClearColor { get; }
 
-		public Window()
+		public Window(int _width, int _height, string _title, Color _clearColor)
 		{
-			Width = Config.Get<int>("Window", "width");
-			Height = Config.Get<int>("Window", "height");
-			Title = Config.Get<string>("Application", "name")!;
-			ClearColor = Config.Get<Color>("Window", "clearColor");
-			
-			Raylib.SetExitKey((KeyboardKey)Config.Get<int>("Application", "quitKey"));
-			
-			if(Config.Get<bool>("Window", "resizableWindow"))
-				Raylib.SetConfigFlags(ConfigFlags.FLAG_WINDOW_RESIZABLE);
+			Width = _width;
+			Height = _height;
+			Title = _title;
+			ClearColor = _clearColor;
 		}
 
 		public void Open()
@@ -30,9 +25,6 @@ namespace Azimuth
 		public void Clear()
 		{
 			Raylib.ClearBackground(ClearColor);
-
-			Width = Raylib.GetScreenWidth();
-			Height = Raylib.GetScreenHeight();
 		}
 
 		public void Close()
